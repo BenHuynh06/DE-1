@@ -1,29 +1,29 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
-void Input(int arr[100], int n);
-int sumArray(int arr[100], int n);
+char input(char str[101]);
+char output(char str[101]);
 
-int main() {
-	int n, arr[100];
+int main () {
+	char str[101];
 	
-	Input(arr, n);
-	int ketqua = sumArray(arr, n);
-	printf ("Ket qua = %d", ketqua);
+	input(str);
+	output(str);
 	
 	return 0;
 }
 
-void Input(int arr[100], int n) {
-	printf ("n = "); scanf ("%d", &n);
-	for (int i = 0; i < n; i++) {
-		scanf("%d", &arr[i]);
+char input(char str[101]) {
+	fgets (str, sizeof(str), stdin);
+}
+
+char output(char str[101]) {
+	for (int i = 0; str[i] != '\0'; i++) {
+		if(i % 2 == 0) {
+			str[i] = toupper(str[i]);
+		}
 	}
-}
-
-int sumArray(int arr[100], int n) {
-	return arr[0] + arr[n - 1];
-}
-
-void Output(int arr[100], int n) {
-	
+	printf("%s", str);
+	return 0;
 }
